@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>全台AQI</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+            integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/all.css">
+    </head>
+
+    <body>
+        <div class="col-md-9 post">
+            <!-- 練習開始 -->
+            <h1 class="mt-0 text-muted">作業練習：元件變換</h1>
+
+            <h3>模板練習作業：Ajax 資料內容呈現</h3>
+            <p>本作業一定要用到元件。</p>
+            <div class="alert alert-secondary">
+                <p>提示：</p>
+                <ol class="mb-0">
+                    <li>將資料內容透過 "元件" 呈現</li>
+                    <li>製作城市過濾選項</li>
+                    <li>將內層資料透過 emit 傳遞到外層 (作為另一個關注城市的呈現)</li>
+                    <li>依據不同污染呈現不同色彩</li>
+                    <li>加分題：透過 localStorage 儲存上次關注的城市</li>
+                </ol>
+            </div>
+
+            <div id="app">
+                <select name="" id="" class="form-control mb-3" v-model="filter">
+                    <option value="" disabled>--- 請選擇城市 ---</option>
+                    <option v-bind:value="item" v-for="item in location">{{item}}</option>
+                </select>
+                <div>
+                    <h4>關注城市</h4>
+                    <div class="card-columns">
+                            <countycomponent v-for="item in stared" :aqielement="item" :key="item.SiteName" v-on:removestarmark="removeStar(item)" :isstar=true></countycomponent>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-columns">
+                    <countycomponent v-for="item in data" v-if="item.County == filter" :aqielement="item" :key="item.SiteName" v-on:addstarmark="addStar(item)"></countycomponent>
+                </div>
+            </div>
+
+            <!-- 元件建立 -->
+            <script type="text/x-template" id="countycomponent">
+                    <div class="card" v-bind:class="status">
+                        <div class="card-header">{{aqielement.County}} - {{aqielement.SiteName}}
+                            <a href="#" class="float-right" v-on:click.prevent="addStar" v-if="!isstar"><i class="far fa-star" ></i></a>
+                            <a href="#" class="float-right" v-on:click.prevent="removeStar" v-if="isstar"><i class="fas fa-star" ></i></a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>AQI 指數: {{aqielement.AQI}}</li>
+                                <li>PM2.5: {{aqielement['PM2.5']}}</li>
+                                <li>狀況: {{aqielement.Status}}</li>
+                            </ul>
+                            {{aqielement.PublishTime}}
+                        </div>
+                    </div>
+                </div>
+            </script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <!-- <script src="js/vue.min.js"></script> -->
+            <script src="js/all.js"></script>
+    </body>
+
+</html>
