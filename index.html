@@ -8,6 +8,7 @@
         <title>全台AQI</title>
         <link rel="stylesheet" href="css/fontawesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css//Lightbox/lightbox.css">
         <link rel="stylesheet" href="css/all.css">
     </head>
 
@@ -52,6 +53,12 @@
                 <countycomponent v-for="item in data" v-if="item.County == filter" :aqielement="item" :key="item.SiteName"
                     v-on:addstarmark="addStar(item)"></countycomponent>
             </div>
+            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png" data-lightbox="image-box" data-title="空氣品質指標(AQI)與健康影響">
+                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png" class="img-thumbnail rounded" alt="">
+            </a>
+            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png" data-lightbox="image-box" data-title="空氣品質指標(AQI)與活動建議">
+                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png" class="img-thumbnail rounded" alt="">
+            </a>
         </div>
         <footer class="container-fluid text-center footer-color">
             <p class="text-block pt-2">AQI監測</p>
@@ -60,26 +67,28 @@
 
         <!-- 元件建立 -->
         <script type="text/x-template" id="countycomponent">
-            <div class="card">
-                <div class="card-header" v-bind:class="status">{{aqielement.County}} - {{aqielement.SiteName}}
-                    <a href="#" class="float-right" v-on:click.prevent="addStar" v-if="!isstar"><i class="far fa-star" ></i></a>
-                    <a href="#" class="float-right" v-on:click.prevent="removeStar" v-if="isstar"><i class="fas fa-star" ></i></a>
+                    <div class="card" >
+                        <div class="card-header" v-bind:class="status">{{aqielement.County}} - {{aqielement.SiteName}}
+                            <a href="#" class="float-right" v-on:click.prevent="addStar" v-if="!isstar"><i class="far fa-star" ></i></a>
+                            <a href="#" class="float-right" v-on:click.prevent="removeStar" v-if="isstar"><i class="fas fa-star" ></i></a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>AQI 指數: {{aqielement.AQI}}</li>
+                                <li>PM2.5: {{aqielement['PM2.5']}}</li>
+                                <li>狀況: {{aqielement.Status}}</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                                <small class="text-muted">{{aqielement.PublishTime}}</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                        <ul class="list-unstyled">
-                        <li>AQI 指數: {{aqielement.AQI}}</li>
-                        <li>PM2.5: {{aqielement['PM2.5']}}</li>
-                        <li>狀況: {{aqielement.Status}}</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">{{aqielement.PublishTime}}</small>
-                </div>
-            </div>
-        </script>
-        <script src="js/jquery-3.3.1.slim.min.js"></script>
+            </script>
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/lightbox.js"></script>
         <script src="js/vue.min.js"></script>
         <script src="js/all.js"></script>
     </body>

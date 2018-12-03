@@ -58,7 +58,7 @@ var app = new Vue({
             //放在github需透過第三方解譯才能夠拉資料
             const corsUrl = 'https://cors-anywhere.herokuapp.com/';
             const api = 'http://opendata2.epa.gov.tw/AQI.json';
-            xhr.open('get', corsUrl + api);
+            xhr.open('get', corsUrl+api);
             xhr.send(null);
             xhr.onload = function () {
                 let jsonCounty = [];
@@ -78,7 +78,6 @@ var app = new Vue({
                 const newStared = JSON.parse(localStorage.getItem('stared')) || [];
                 vm.data.forEach(function (item) {
                     newStared.forEach(function (item2) {
-                        console.log(item2.SiteName);
                         if (item.SiteName == item2.SiteName) {
                             vm.stared.push(item);
                         }
