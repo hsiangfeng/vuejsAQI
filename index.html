@@ -60,24 +60,23 @@
 
         <!-- 元件建立 -->
         <script type="text/x-template" id="countycomponent">
-                    <div class="card" v-bind:class="status">
-                        <div class="card-header">{{aqielement.County}} - {{aqielement.SiteName}}
-                            <a href="#" class="float-right" v-on:click.prevent="addStar" v-if="!isstar"><i class="far fa-star" ></i></a>
-                            <a href="#" class="float-right" v-on:click.prevent="removeStar" v-if="isstar"><i class="fas fa-star" ></i></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li>AQI 指數: {{aqielement.AQI}}</li>
-                                <li>PM2.5: {{aqielement['PM2.5']}}</li>
-                                <li>狀況: {{aqielement.Status}}</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                                <small class="text-muted">{{aqielement.PublishTime}}</small>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="card-header" v-bind:class="status">{{aqielement.County}} - {{aqielement.SiteName}}
+                    <a href="#" class="float-right" v-on:click.prevent="addStar" v-if="!isstar"><i class="far fa-star" ></i></a>
+                    <a href="#" class="float-right" v-on:click.prevent="removeStar" v-if="isstar"><i class="fas fa-star" ></i></a>
                 </div>
-            </script>
+                <div class="card-body">
+                        <ul class="list-unstyled">
+                        <li>AQI 指數: {{aqielement.AQI}}</li>
+                        <li>PM2.5: {{aqielement['PM2.5']}}</li>
+                        <li>狀況: {{aqielement.Status}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{aqielement.PublishTime}}</small>
+                </div>
+            </div>
+        </script>
         <script src="js/jquery-3.3.1.slim.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

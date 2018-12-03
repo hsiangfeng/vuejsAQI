@@ -55,7 +55,10 @@ var app = new Vue({
             const vm = this;
             //使用JavaScript下載資料
             const xhr = new XMLHttpRequest();
-            xhr.open('get', 'http://opendata2.epa.gov.tw/AQI.json');
+            //放在github需透過第三方解譯才能夠拉資料
+            const corsUrl = 'https://cors-anywhere.herokuapp.com/';
+            const api = 'http://opendata2.epa.gov.tw/AQI.json';
+            xhr.open('get', corsUrl + api);
             xhr.send(null);
             xhr.onload = function () {
                 let jsonCounty = [];
