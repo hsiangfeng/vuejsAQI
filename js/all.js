@@ -46,7 +46,7 @@ var app = new Vue({
     data: {
         data: [], //物件陣列
         location: [], //縣市
-        stared: ['基隆'], //關注
+        stared: [], //關注
         filter: '高雄市', //過濾縣市
     },
     // 請在此撰寫 JavaScript
@@ -71,12 +71,17 @@ var app = new Vue({
                     }
                 });
                 // console.log(vm.location);
+                //獲取上一次關注的資料
+                const newStared = JSON.parse(localStorage.getItem('stared')) || [];
+                vm.data.forEach(function (item) {
+                    newStared.forEach(function (item2) {
+                        console.log(item2.SiteName);
+                        if (item.SiteName == item2.SiteName) {
+                            vm.stared.push(item);
+                        }
+                    })
+                })
             };
-            //獲取上一次關注的資料
-            let stared = JSON.parse(localStorage.getItem('stared')) || [];
-
-            console.log(stared);
-            
         },
         addStar: function (Staritem) {
             let vm = this;
@@ -86,7 +91,7 @@ var app = new Vue({
             });
             if (data == undefined) {
                 vm.stared.push(Staritem);
-                localStorage.setItem("stared", JSON.stringify(Staritem['SiteName']));
+                localStorage.setItem("stared", JSON.stringify(vm.stared));
             } else {
                 return
             }
@@ -99,7 +104,7 @@ var app = new Vue({
                 if (data == Staritem) {
                     console.log('執行刪除程序');
                     JSON.parse(localStorage.getItem('stared', data));
-                    localStorage.removeItem('stared',data);
+                    localStorage.removeItem('stared', data);
                     return vm.stared.splice(key, 1);
                 }
             })

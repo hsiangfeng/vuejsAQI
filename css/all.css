@@ -21,3 +21,20 @@
 .status-aqi6 {
   background-color: #7e0023;
 }
+/**/
+.select-bg{
+  background-image: url(/img/bg2.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 200px;
+}
+.bg-data{
+  background-image: url(/img/bg4.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.footer-color{
+  background: #559AC8;
+}
