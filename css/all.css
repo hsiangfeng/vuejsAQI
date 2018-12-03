@@ -23,14 +23,14 @@
 }
 /**/
 .select-bg{
-  background-image: url(/img/bg2.jpg);
+  background-image: url(https://hsiangfeng.github.io/vuejsAQI/img/bg2.jpg);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   height: 200px;
 }
 .bg-data{
-  background-image: url(/img/bg4.jpg);
+  background-image: url(https://hsiangfeng.github.io/vuejsAQI/img/bg4.jpg);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
