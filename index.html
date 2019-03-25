@@ -13,24 +13,28 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md sticky-top" data-aos="fade-down" data-aos-duration="500" style="background-color: rgba(0, 0, 0, 0.9);">
+        <nav class="navbar navbar-expand-md sticky-top" data-aos="fade-down" data-aos-duration="500"
+            style="background-color: rgba(0, 0, 0, 0.9);">
             <a class="navbar-brand d-md-none" href="#">
                 全台AQI
             </a>
-            <button class="navbar-toggler ml-auto text-white" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ml-auto text-white" type="button" data-toggle="collapse"
+                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="d-md-flex d-block w-100">
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                     <div class="navbar-nav  align-items-center">
-                        <a class="nav-item nav-link active text-white" style="font-size: 20px" href="https://hsiangfeng.github.io/vuejsAQI/">
+                        <a class="nav-item nav-link active text-white" style="font-size: 20px"
+                            href="https://hsiangfeng.github.io/vuejsAQI/">
                             首頁<span class="sr-only">(current)</span>
                         </a>
                         <a class="navbar-brand mx-2 d-none d-md-inline px-4" href="/">
                             全台AQI資訊網
                         </a>
-                        <a class="nav-item nav-link text-white" style="font-size: 20px" href="https://hsiangfeng.github.io/AJAX-HomeWork/">
+                        <a class="nav-item nav-link text-white" style="font-size: 20px"
+                            href="https://hsiangfeng.github.io/AJAX-HomeWork/">
                             高雄旅遊
                         </a>
                     </div>
@@ -45,21 +49,25 @@
             </select>
             <h4>關注城市</h4>
             <div class="card-columns">
-                <countycomponent v-for="item in stared" :aqielement="item" :key="item.SiteName" v-on:removestarmark="removeStar(item)"
-                    :isstar=true></countycomponent>
+                <countycomponent v-for="item in stared" :aqielement="item" :key="item.SiteName"
+                    v-on:removestarmark="removeStar(item)" :isstar=true></countycomponent>
             </div>
             <hr>
             <div class="card-columns">
-                <countycomponent v-for="item in data" v-if="item.County == filter" :aqielement="item" :key="item.SiteName"
-                    v-on:addstarmark="addStar(item)"></countycomponent>
+                <countycomponent v-for="item in data" v-if="item.County == filter" :aqielement="item"
+                    :key="item.SiteName" v-on:addstarmark="addStar(item)"></countycomponent>
             </div>
             <h4>數據參考值</h4>
-            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png" data-lightbox="image-box" data-title="空氣品質指標(AQI)與健康影響">
-                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png" class="img-thumbnail rounded" alt="">
+            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png" data-lightbox="image-box"
+                data-title="空氣品質指標(AQI)與健康影響">
+                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-32.png"
+                    class="img-thumbnail rounded" alt="">
             </a>
             <h4>空氣品質指標(AQI)與活動建議</h4>
-            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png" data-lightbox="image-box" data-title="空氣品質指標(AQI)與活動建議">
-                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png" class="img-thumbnail rounded" alt="">
+            <a href="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png" data-lightbox="image-box"
+                data-title="空氣品質指標(AQI)與活動建議">
+                <img src="https://hsiangfeng.github.io/vuejsAQI/img/2018-12-03_11-45-41.png"
+                    class="img-thumbnail rounded" alt="">
             </a>
         </div>
         <footer class="container-fluid text-center footer-color">
