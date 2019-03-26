@@ -112,10 +112,10 @@
                   <small class="text-muted">{{aqielement.PublishTime}}</small>
           </div>
       </div>
-  </div>
     </script>
   </div>
 </template>
+
 <script>
 Vue.component("countycomponent", {
   props: {
@@ -237,3 +237,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+  @import url(css/fontawesome.min.css);
+  @import url(css/bootstrap.min.css);
+  @import url(css/Lightbox/lightbox.css);
+  @import url(css/all.css);
+</style>
