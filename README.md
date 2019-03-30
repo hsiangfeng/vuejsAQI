@@ -12,5 +12,8 @@
 - poper
 - Fontawesome
 - ESlint(standard)
+- CORS問題解決
+## API來源
+[http://opendata2.epa.gov.tw/AQI.json](http://opendata2.epa.gov.tw/AQI.json)
 ## 資料來源 
 OpenData.epa 行政院環境保護署環境資源資料開放平台
